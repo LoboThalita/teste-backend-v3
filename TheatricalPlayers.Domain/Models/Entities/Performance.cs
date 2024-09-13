@@ -10,5 +10,10 @@ public class Performance
         PlayId = playId;
         Audience = audience;
     }
+
+    public Task CalculateValue()
+    {
+
+    }
 }
 
