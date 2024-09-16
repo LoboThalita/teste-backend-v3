@@ -1,14 +1,25 @@
+using System.ComponentModel.DataAnnotations;
+using TheatricalPlayers.Domain.Interfaces;
+
 namespace TheatricalPlayersRefactoringKata;
 
-public class Performance
+public class Performance : IPerformance
 {
-    public Play Play { get; set; }
-    public int Audience { get; set; }
+    public IPlay Play { get; }
 
-    public Performance(Play play, int audience)
+    public int Audience { get; }
+
+    public double CalculateValue()
     {
-        Play = play;
-        Audience = audience;
+        int lines = Math.Clamp(Play.Lines, 1000, 4000);
+        double baseAmount = lines / 10.0;
+        return Play.Type.CalculateValue(Audience, baseAmount);
+    }
+
+    public int CalculateCredits()
+    {
+        return Play.Type.CalculateCreditType(Audience);
     }
 }
+
 

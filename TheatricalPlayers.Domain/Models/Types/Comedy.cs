@@ -1,10 +1,12 @@
 ﻿using TheatricalPlayers.Domain.Interfaces;
+using TheatricalPlayers.Domain.Models.Enum;
 
 namespace TheatricalPlayers.Domain.Models.Types;
 
 public class Comedy : CreditType, IType
 {
     public double Value { get; set;  }
+    public TypeEnum TypeEnum { get; set; }
 
     const int maxAudience = 20;
     const double additionalValue = 5.00;
@@ -19,8 +21,8 @@ public class Comedy : CreditType, IType
     {
         int baseCredit = base.CalculateCreditType(audience);
 
-        int bonus = audience / 5;
-
+        int bonus = (int)Math.Floor((decimal)audience / 5);
+        
         return baseCredit + bonus;
     }
 }

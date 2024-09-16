@@ -4,12 +4,20 @@ using TheatricalPlayersRefactoringKata;
 
 namespace TheatricalPlayers.Apirest.Controllers;
 
-public class InvoiceController
+[Route("api/[controller]")]
+[ApiController]
+public class InvoiceController : ControllerBase
 {
     private readonly IInvoiceService _invoiceService;
-    [HttpGet]
-    public string PrintStatement(Invoice invoice)
+
+    public InvoiceController(IInvoiceService invoiceService)
     {
-        return _invoiceService.PrintStatement(invoice);
+        _invoiceService = invoiceService;
+    }
+
+    [HttpGet]
+    public string PrintStatement([FromBody]Invoice invoice)
+    {
+        return _invoiceService.Print(invoice);
     }
 }

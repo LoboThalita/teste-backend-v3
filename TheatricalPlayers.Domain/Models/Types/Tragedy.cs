@@ -1,9 +1,11 @@
 ﻿using TheatricalPlayers.Domain.Interfaces;
+using TheatricalPlayers.Domain.Models.Enum;
 
 namespace TheatricalPlayers.Domain.Models.Types;
 
 public class Tragedy : CreditType, IType
 {
+    public TypeEnum TypeEnum { get; set; }
     public double Value { get; set; }
 
     const int maxAudience = 30;
