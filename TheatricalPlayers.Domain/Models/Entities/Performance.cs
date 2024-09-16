@@ -2,18 +2,13 @@ namespace TheatricalPlayersRefactoringKata;
 
 public class Performance
 {
-    public string PlayId { get; set; }
+    public Play Play { get; set; }
     public int Audience { get; set; }
 
-    public Performance(string playId, int audience)
+    public Performance(Play play, int audience)
     {
-        PlayId = playId;
+        Play = play;
         Audience = audience;
-    }
-
-    public Task CalculateValue()
-    {
-
     }
 }
 

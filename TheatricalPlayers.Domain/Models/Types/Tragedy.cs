@@ -9,8 +9,9 @@ public class Tragedy : IType
     const int maxAudience = 30;
     const double additionalValue = 10.00;
 
-    public void CalculateValue(int audience, double baseValue)
+    public double CalculateValue(int audience, double baseValue)
     {
         Value = audience <= maxAudience ? baseValue : baseValue + (audience- maxAudience) * additionalValue;
+        return Value;
     }
 }

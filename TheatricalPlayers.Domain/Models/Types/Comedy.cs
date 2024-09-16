@@ -8,10 +8,11 @@ public class Comedy : IType
 
     const int maxAudience = 20;
     const double additionalValue = 5.00;
-    public void CalculateValue(int audience, double baseValue)
+    public double CalculateValue(int audience, double baseValue)
     {
         baseValue += 3.00 * audience;
 
         Value = audience > maxAudience ? baseValue +  100.00 + (audience - maxAudience) * additionalValue : baseValue;
+        return Value;
     }
 }
