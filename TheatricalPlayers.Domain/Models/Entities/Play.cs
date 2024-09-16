@@ -5,7 +5,7 @@ namespace TheatricalPlayersRefactoringKata;
 
 public class Play
 {
-    public Play(string name, int lines, ITypeService type)
+    public Play(string name, int lines, IType type)
     {
         Name = name;
         Lines = lines;
@@ -15,5 +15,4 @@ public class Play
     public string Name { get; }
     public int Lines { get; }
     public IType Type { get; }
-    public decimal BaseValue => Lines / 10;
 }

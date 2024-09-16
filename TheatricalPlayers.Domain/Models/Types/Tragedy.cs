@@ -2,7 +2,7 @@
 
 namespace TheatricalPlayers.Domain.Models.Types;
 
-public class Tragedy : IType
+public class Tragedy : CreditType, IType
 {
     public double Value { get; set; }
 

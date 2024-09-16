@@ -2,7 +2,7 @@
 
 namespace TheatricalPlayers.Domain.Models.Types;
 
-public class Historical : IType
+public class Historical : CreditType, IType
 {
     public double Value { get; set; }
 

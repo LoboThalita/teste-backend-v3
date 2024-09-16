@@ -2,7 +2,7 @@
 
 namespace TheatricalPlayers.Domain.Models.Types;
 
-public class Comedy : IType
+public class Comedy : CreditType, IType
 {
     public double Value { get; set;  }
 
@@ -14,5 +14,13 @@ public class Comedy : IType
 
         Value = audience > maxAudience ? baseValue +  100.00 + (audience - maxAudience) * additionalValue : baseValue;
         return Value;
+    }
+    public override int CalculateCreditType(int audience)
+    {
+        int baseCredit = base.CalculateCreditType(audience);
+
+        int bonus = audience / 5;
+
+        return baseCredit + bonus;
     }
 }
